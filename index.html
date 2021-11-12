@@ -1,0 +1,34 @@
+<html>
+  <script>
+    function tellsides() {
+      const el = document.getElementById("triangle-style");
+      const sides = [];
+      for (let i = 1; i <= 3; i++) {
+        const val = document.getElementById(`side${i}`).value;
+        sides.unshift(val);
+      }
+      let result = '';
+      if (sides[0] == sides[1] && sides[0] == sides[2]) {
+        result = "equilateral";
+      } else if ((sides[0] == sides[1]) || (sides[0] == sides[2]) || (sides[1] === sides[2])) {
+        result = "isoceles";
+      } else {
+        result = "scalene";
+      }
+      console.log(sides);
+      el.innerHTML = `Triangle is ${result}`;
+    }
+  </script>
+  <body>
+    <form>
+      <p>
+        Enter the lengths of 3 sides of a triangle in cm.
+      </p>
+      <label for="side1">Side 1:<input id="side1" name="side1" type="textbox"></input><br />
+      <label for="side2">Side 2:<input id="side2" name="side2" type="textbox"></input><br />
+      <label for="side3">Side 3:<input id="side3" name="side3" type="textbox"></input><br />
+      <button type="button" onclick="tellsides()">Calculate</button><br />
+      <span id="triangle-style"></span>
+    </form>
+  </body>
+</html>
